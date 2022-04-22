@@ -1,6 +1,5 @@
 package application.service;
 
-import application.dto.AccountsDto;
 import application.entity.Account;
 import application.exceptions.InsufficientBalanceException;
 import application.repository.AccountsRepository;
@@ -56,26 +55,26 @@ public class AccountService {
         return accountsRepository.save(account);
     }
 
-    @Transactional
-    public AccountsDto moveFunds(Long idfrom, Long idto, Double value){
-//        Account accountFrom = Account.builder().build();
-//        Account accountTo = Account.builder().build();
-//        try {
-//            accountFrom = decreaseValue(idfrom, value);
-//        } catch (InsufficientBalanceException e){
-           return AccountsDto.builder()
-                    .errorName("Недостаточно средств для списания со счета")
-                    .build();
-//        }
-//        //accountTo = increaseTheValue(idto, value);
-//        return AccountsDto.builder()
-//                .nameFrom(accountFrom.getName())
-//                .idfrom(accountFrom.getId())
-//                .valueFrom(accountFrom.getValue())
-//                .nameto(accountTo.getName())
-//                .idto(accountTo.getId())
-//                .valueto(accountTo.getValue()).build();
-    }
+//    @Transactional
+//    public void moveFunds(Long idfrom, Long idto, Double value){
+////        Account accountFrom = Account.builder().build();
+////        Account accountTo = Account.builder().build();
+////        try {
+////            accountFrom = decreaseValue(idfrom, value);
+////        } catch (InsufficientBalanceException e){
+////           return AccountsDto.builder()
+////                    .errorName("Недостаточно средств для списания со счета")
+////                    .build();
+////        }
+////        //accountTo = increaseTheValue(idto, value);
+////        return AccountsDto.builder()
+////                .nameFrom(accountFrom.getName())
+////                .idfrom(accountFrom.getId())
+////                .valueFrom(accountFrom.getValue())
+////                .nameto(accountTo.getName())
+////                .idto(accountTo.getId())
+////                .valueto(accountTo.getValue()).build();
+//    }
 }
 
 //ToDo  Разбить контроллер

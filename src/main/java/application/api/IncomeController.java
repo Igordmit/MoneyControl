@@ -1,7 +1,10 @@
 package application.api;
 
+import application.entity.DailyExpense;
+import application.entity.DailyIncome;
 import application.entity.TypeIncome;
 import application.service.IncomeService;
+import application.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import java.util.List;
 public class IncomeController {
 
     private final IncomeService incomeService;
+    private final ReportService reportService;
     //Работа со статьями дохода
     @PostMapping(value = "/types")
     public TypeIncome createType(@RequestParam String name){
@@ -51,5 +55,10 @@ public class IncomeController {
     @DeleteMapping
     public void deleteIncome(@RequestParam Long id){
         incomeService.deleteIncome(id);
+    }
+
+    @GetMapping("/report")
+    public List<DailyIncome> getIncomeBetweenDates(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateStart, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateStop){
+        return reportService.getIncomesBetweenDates(dateStart, dateStop);
     }
 }

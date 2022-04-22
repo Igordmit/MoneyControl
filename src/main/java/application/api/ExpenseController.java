@@ -1,8 +1,8 @@
 package application.api;
 
-import application.dto.ExpenseRecordDto;
 import application.entity.*;
 import application.service.ExpenseService;
+import application.service.ReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +15,7 @@ import java.util.List;
 @RequestMapping(value = "expense")
 public class ExpenseController {
     private final ExpenseService expenseService;
+    private final ReportService reportService;
 
 
     @PostMapping(value = "/types")
@@ -53,5 +54,10 @@ public class ExpenseController {
     @DeleteMapping
     public void deleteExpense(@RequestParam Long id){
         expenseService.deleteExpense(id);
+    }
+
+    @GetMapping("/report")
+    public List<DailyExpense> getExpenseBetweenDates(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateStart, @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateStop){
+        return reportService.getExpenseBetweenDates(dateStart, dateStop);
     }
 }

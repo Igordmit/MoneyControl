@@ -1,6 +1,5 @@
 package application.api;
 
-import application.dto.AccountsDto;
 import application.entity.Account;
 import application.service.AccountService;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +27,8 @@ public class AccountController {
         return accountService.rename(id, newName);
     }
 
-    @PostMapping(value="/move")
-    public AccountsDto moveFunds(@RequestParam Long idfrom, Long idto, Double value){
-        return accountService.moveFunds(idfrom, idto, value);
-    }
+//    @PostMapping(value="/move")
+//    public void moveFunds(@RequestParam Long idfrom, Long idto, Double value){
+//        return accountService.moveFunds(idfrom, idto, value);
+//    }
 }
