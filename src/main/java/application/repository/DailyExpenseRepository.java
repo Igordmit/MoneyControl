@@ -9,5 +9,7 @@ import java.util.List;
 
 public interface DailyExpenseRepository extends JpaRepository<DailyExpense, Long> {
 
-    List<DailyExpense> findDailyExpensesByDateBetween(Date dateStart, Date dateStop);
+    List<DailyExpense> findByDateBetween(Date dateStart, Date dateStop);
+
+
 }

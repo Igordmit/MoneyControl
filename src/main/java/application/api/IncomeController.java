@@ -5,6 +5,7 @@ import application.entity.DailyIncome;
 import application.entity.TypeIncome;
 import application.service.IncomeService;
 import application.service.ReportService;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,8 @@ public class IncomeController {
 
     private final IncomeService incomeService;
     private final ReportService reportService;
+
+
     //Работа со статьями дохода
     @PostMapping(value = "/types")
     public TypeIncome createType(@RequestParam String name){

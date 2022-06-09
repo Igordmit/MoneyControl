@@ -1,28 +1,28 @@
 package application.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "type_expenses")
-public class TypeExpense {
+public class TypeExpense{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expenses_sequence_generator")
     @SequenceGenerator(name = "expenses_sequence_generator", sequenceName = "expenses_sequence", allocationSize = 1)
-    @Column
+    //@Column
     private Long id;
 
-    @Column
+    //@Column
     private String name;
 
 }

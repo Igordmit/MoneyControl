@@ -27,8 +27,8 @@ public class AccountController {
         return accountService.rename(id, newName);
     }
 
-//    @PostMapping(value="/move")
-//    public void moveFunds(@RequestParam Long idfrom, Long idto, Double value){
-//        return accountService.moveFunds(idfrom, idto, value);
-//    }
+    @PostMapping(value="/move")
+    public void moveFunds(@RequestParam Long idfrom, Long idto, Double value){
+        accountService.moveFunds(idfrom, idto, value);
+    }
 }

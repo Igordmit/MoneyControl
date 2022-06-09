@@ -55,28 +55,15 @@ public class AccountService {
         return accountsRepository.save(account);
     }
 
-//    @Transactional
-//    public void moveFunds(Long idfrom, Long idto, Double value){
-////        Account accountFrom = Account.builder().build();
-////        Account accountTo = Account.builder().build();
-////        try {
-////            accountFrom = decreaseValue(idfrom, value);
-////        } catch (InsufficientBalanceException e){
-////           return AccountsDto.builder()
-////                    .errorName("Недостаточно средств для списания со счета")
-////                    .build();
-////        }
-////        //accountTo = increaseTheValue(idto, value);
-////        return AccountsDto.builder()
-////                .nameFrom(accountFrom.getName())
-////                .idfrom(accountFrom.getId())
-////                .valueFrom(accountFrom.getValue())
-////                .nameto(accountTo.getName())
-////                .idto(accountTo.getId())
-////                .valueto(accountTo.getValue()).build();
-//    }
-}
+    @Transactional
+    public void moveFunds(Long idfrom, Long idto, Double value){
+        Account accountFrom = get(idfrom);
+        Account accountTo = get(idto);
+        try {
+            accountFrom = decreaseValue(accountFrom, value);
+        } catch (InsufficientBalanceException e){
 
-//ToDo  Разбить контроллер
-// в функции изменения значения счетов передавать сущности, а не id
-// Переделать структуру хранения данных по счетам
+        }
+        accountTo = increaseValue(accountTo, value);
+    }
+}

@@ -26,7 +26,7 @@ public class DailyIncome {
     @Column
     private Date date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private TypeIncome type;
 
     @Column
