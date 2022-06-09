@@ -19,10 +19,10 @@ public class TypeExpense{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expenses_sequence_generator")
     @SequenceGenerator(name = "expenses_sequence_generator", sequenceName = "expenses_sequence", allocationSize = 1)
-    //@Column
+    @Column
     private Long id;
 
-    //@Column
+    @Column
     private String name;
 
 }
