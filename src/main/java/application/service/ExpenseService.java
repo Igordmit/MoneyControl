@@ -77,9 +77,4 @@ public class ExpenseService {
         dailyExpenceRepository.deleteById(id);
     }
 
-//    @Transactional
-//    public void createExpense(Date date, Long typeid, Double summ, String comment, Long accountid){
-//
-//        //createExpenseRecord(date, typeid, summ, comment);
-//    }
 }
